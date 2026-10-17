@@ -1,0 +1,1404 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #172b24;
+  background: #eef4eb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 20px 108px;
+  background: #f6f8f2;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-icon {
+  display: grid;
+  width: 45px;
+  height: 45px;
+  place-items: center;
+  border-radius: 14px;
+  background: #215b3d;
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.brand h1,
+.page-header-title h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.brand p,
+.page-header-title p {
+  margin: 4px 0 0;
+  color: #78857c;
+  font-size: 11px;
+}
+
+.help-button {
+  padding: 10px 12px;
+  border: 1px solid #dce5d9;
+  border-radius: 12px;
+  background: #fff;
+  color: #315c42;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.welcome-section {
+  padding: 40px 0 22px;
+}
+
+.eyebrow {
+  color: #62836b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.welcome-section h2,
+.pass-page-intro h2 {
+  margin: 12px 0 8px;
+  font-size: clamp(26px, 7vw, 33px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.welcome-section p,
+.pass-page-intro p {
+  margin: 0;
+  color: #7a877d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.search-section {
+  padding: 17px;
+  border: 1px solid #e4eae0;
+  border-radius: 20px;
+  background: white;
+}
+
+.search-section label,
+.ticket-placeholder label {
+  display: block;
+  margin-bottom: 10px;
+  color: #435448;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 8px 7px 12px;
+  border: 1px solid #dfe8dc;
+  border-radius: 13px;
+  background: #fbfcf9;
+}
+
+.search-box > span {
+  color: #64826a;
+  font-size: 25px;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 12px;
+}
+
+.search-box button {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #235b3d;
+  color: white;
+  font-size: 20px;
+}
+
+.search-hint {
+  margin: 10px 0 0;
+  color: #929d93;
+  font-size: 10px;
+}
+
+.services-section {
+  margin-top: 32px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  margin: 7px 0 0;
+  font-size: 21px;
+}
+
+.section-count {
+  padding-bottom: 3px;
+  color: #8b978d;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.service-list {
+  display: grid;
+  gap: 13px;
+}
+
+.service-card {
+  display: flex;
+  gap: 15px;
+  padding: 20px 16px;
+  border: 1px solid #e1e8dc;
+  border-radius: 20px;
+  background: white;
+}
+
+.service-icon {
+  display: grid;
+  width: 51px;
+  height: 51px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 16px;
+  background: #edf4e9;
+  font-size: 25px;
+}
+
+.ticket-service .service-icon {
+  background: #fff1e7;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-content h3 {
+  margin: 2px 0 6px;
+  font-size: 16px;
+}
+
+.service-content p {
+  margin: 0 0 12px;
+  color: #829087;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #24613f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.nearby-section {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 24px;
+  padding: 17px 14px;
+  border: 1px solid #e1e8dc;
+  border-radius: 17px;
+  background: #edf3e8;
+}
+
+.nearby-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 13px;
+  background: white;
+  color: #286343;
+  font-size: 25px;
+}
+
+.nearby-section h3 {
+  margin: 0 0 5px;
+  font-size: 12px;
+}
+
+.nearby-section p {
+  margin: 0;
+  color: #829087;
+  font-size: 10px;
+}
+
+.nearby-arrow {
+  margin-left: auto;
+  color: #3c6e4e;
+}
+
+.demo-notice {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 22px 0 0;
+  color: #859086;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.bottom-navigation {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid #e5ebe1;
+  background: rgb(255 255 255 / 96%);
+  backdrop-filter: blur(12px);
+}
+
+.nav-item {
+  display: flex;
+  min-width: 70px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #8b968d;
+}
+
+.nav-item > span {
+  font-size: 22px;
+}
+
+.nav-item small {
+  font-size: 10px;
+}
+
+.nav-item.active {
+  color: #286443;
+  font-weight: 800;
+}
+
+.inner-page {
+  padding-top: 20px;
+}
+
+.back-button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #e0e8dc;
+  border-radius: 12px;
+  background: white;
+  font-size: 22px;
+}
+
+.page-header-title {
+  flex: 1;
+}
+
+.pass-page-intro {
+  padding: 30px 0 20px;
+}
+
+.travel-pass {
+  overflow: hidden;
+  border: 1px solid #e7e7df;
+  border-radius: 17px;
+  background: white;
+  box-shadow: 0 10px 35px rgb(35 66 42 / 7%);
+}
+
+.pass-marathi-heading {
+  padding: 20px 12px 15px;
+  color: #bd3333;
+  font-size: clamp(16px, 4.6vw, 21px);
+  font-weight: 900;
+  text-align: center;
+}
+
+.pass-demo-label {
+  padding: 8px 10px;
+  background: #fff1e9;
+  color: #a43a26;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  text-align: center;
+}
+
+.pass-details-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.7fr;
+  gap: 7px;
+  padding: 22px 13px;
+}
+
+.pass-details-grid > div,
+.pass-time-grid > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pass-details-grid span,
+.pass-time-grid span {
+  color: #92958e;
+  font-size: 10px;
+}
+
+.pass-details-grid strong {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.pass-divider {
+  position: relative;
+  height: 1px;
+  border-top: 2px dashed #d9e0d5;
+}
+
+.pass-divider::before,
+.pass-divider::after {
+  position: absolute;
+  top: -11px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #f6f8f2;
+  content: "";
+}
+
+.pass-divider::before {
+  left: -11px;
+}
+
+.pass-divider::after {
+  right: -11px;
+}
+
+.pass-time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 20px 15px 13px;
+}
+
+.pass-time-grid strong {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.reference-number {
+  padding: 14px 8px;
+  color: #68766b;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.pass-type-strip {
+  padding: 13px;
+  background: #bd3535;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.pass-seal {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  background: white;
+}
+
+.seal-inner {
+  display: flex;
+  width: 145px;
+  height: 145px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px double #c34a42;
+  border-radius: 50%;
+  color: #b73e37;
+  animation: seal-pulse 3s ease-in-out infinite;
+}
+
+.seal-inner span,
+.seal-inner small {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.seal-inner strong {
+  margin: 4px 0;
+  font-family: Georgia, serif;
+  font-size: 53px;
+  line-height: 1;
+}
+
+.pass-expiry {
+  padding: 14px 10px;
+  border-top: 1px solid #eceee8;
+  background: #f8f9f6;
+  color: #788478;
+  font-size: 10px;
+  text-align: center;
+}
+
+.qr-button,
+.primary-button {
+  width: 100%;
+  margin-top: 17px;
+  padding: 15px;
+  border: 1px solid #2c7149;
+  border-radius: 14px;
+  background: #245e3d;
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.return-home {
+  display: block;
+  margin: 22px 0;
+  color: #316546;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.ticket-placeholder {
+  margin-top: 30px;
+  padding: 23px 18px;
+  border: 1px solid #e2e9de;
+  border-radius: 20px;
+  background: white;
+}
+
+.placeholder-icon {
+  margin-bottom: 20px;
+  font-size: 38px;
+}
+
+.ticket-placeholder h2 {
+  margin: 10px 0;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.ticket-placeholder > p {
+  margin-bottom: 25px;
+  color: #7e8a80;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.ticket-placeholder label {
+  margin-top: 17px;
+}
+
+.ticket-placeholder input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dfe7dc;
+  border-radius: 12px;
+  outline-color: #316b46;
+  background: #fbfcf9;
+}
+
+.ticket-placeholder .demo-disclaimer {
+  margin: 15px 0 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+@keyframes seal-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 24px 0;
+  }
+
+  .app-shell {
+    min-height: calc(100vh - 48px);
+    border: 1px solid #e4eae0;
+    border-radius: 28px;
+    box-shadow: 0 15px 60px rgb(35 66 42 / 8%);
+  }
+
+  .bottom-navigation {
+    bottom: 24px;
+    border: 1px solid #e5ebe1;
+    border-radius: 0 0 28px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* =========================================
+   DAILY PASS — REFERENCE-INSPIRED LAYOUT
+   ========================================= */
+
+.pass-screen {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px 24px;
+  background: #e4f0d9;
+  color: #242824;
+}
+
+.pass-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 540px);
+  height: 66px;
+  margin: 0 auto;
+}
+
+.pass-close {
+  color: #222b24;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.pass-top-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.pass-top-links button,
+.pass-top-links a {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #303b31;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pass-content {
+  width: min(100%, 540px);
+  margin: 94px auto 0;
+}
+
+.reference-pass {
+  overflow: hidden;
+  border-radius: 15px;
+  background: #f4f4f4;
+  box-shadow: none;
+}
+
+.reference-pass-heading {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  background: #c52227;
+  color: white;
+  font-size: clamp(16px, 4.3vw, 22px);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.reference-pass-details {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr 0.65fr;
+  gap: 10px;
+  padding: 24px 22px 27px;
+}
+
+.reference-pass-details > div,
+.reference-booking > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reference-pass-details span,
+.reference-booking span {
+  color: #777b77;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.reference-pass-details strong {
+  color: #202220;
+  font-size: clamp(14px, 3.7vw, 21px);
+  font-weight: 750;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.reference-perforation {
+  position: relative;
+  height: 1px;
+  margin: 0;
+  border-top: 2px dashed #c9c9c9;
+}
+
+.reference-perforation::before,
+.reference-perforation::after {
+  position: absolute;
+  top: -23px;
+  width: 24px;
+  height: 46px;
+  border-radius: 50%;
+  background: #e4f0d9;
+  content: "";
+}
+
+.reference-perforation::before {
+  left: -12px;
+}
+
+.reference-perforation::after {
+  right: -12px;
+}
+
+.reference-booking {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 35px 22px 10px;
+}
+
+.reference-booking strong {
+  color: #292c29;
+  font-size: clamp(11px, 3vw, 14px);
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.reference-number {
+  padding: 22px 8px 26px;
+  color: #575b57;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.reference-pass-strip {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  background: #c52227;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.reference-emblem-area {
+  display: grid;
+  min-height: 330px;
+  place-items: center;
+  background: #f4f4f4;
+}
+
+.demo-emblem {
+  display: flex;
+  width: 128px;
+  height: 128px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 2px solid #a4a4a4;
+  border-radius: 50%;
+  color: #555;
+  text-align: center;
+}
+
+.demo-emblem strong {
+  width: 100%;
+  padding: 5px 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  color: #a32d32;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.demo-emblem span {
+  padding: 0 8px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.reference-expiry {
+  min-height: 37px;
+  padding: 9px 6px;
+  background: #eaeaea;
+  color: #707070;
+  font-size: 14px;
+  text-align: center;
+}
+
+.reference-qr-button {
+  display: flex;
+  width: 100%;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 72px;
+  border: 2px solid #619674;
+  border-radius: 12px;
+  background: transparent;
+  color: #427956;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.reference-qr-button > span {
+  font-size: 26px;
+}
+
+.demo-qr-panel {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid #cbd8c5;
+  border-radius: 12px;
+  background: white;
+  text-align: center;
+}
+
+.demo-qr-pattern {
+  display: grid;
+  width: 150px;
+  height: 150px;
+  place-items: center;
+  margin: 0 auto;
+  border: 8px solid #222;
+  background:
+    repeating-conic-gradient(#222 0% 25%, white 0% 50%) 0 0 / 18px 18px;
+}
+
+.demo-qr-pattern span {
+  padding: 8px;
+  background: white;
+  color: #222;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.demo-qr-panel p {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pass-disclaimer {
+  margin: 14px 0 0;
+  color: #66745f;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .pass-screen {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .pass-content {
+    margin-top: 76px;
+  }
+
+  .reference-pass-details {
+    gap: 7px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .reference-booking {
+    gap: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .reference-pass-details span,
+  .reference-booking span {
+    font-size: 12px;
+  }
+
+  .reference-emblem-area {
+    min-height: 280px;
+  }
+
+  .reference-qr-button {
+    margin-top: 48px;
+  }
+}
+/* ===== Mobile full-screen pass layout ===== */
+
+.pass-screen {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0 14px 12px;
+  background: #e4f0d9;
+}
+
+.pass-topbar {
+  width: 100%;
+  max-width: 540px;
+  height: 48px;
+}
+
+.pass-content {
+  width: 100%;
+  max-width: 540px;
+  margin: clamp(24px, 7vh, 70px) auto 0;
+}
+
+.reference-pass {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.reference-pass-heading {
+  min-height: 43px;
+  padding: 5px 8px;
+  font-size: clamp(15px, 4.2vw, 22px);
+}
+
+.reference-pass-details {
+  gap: 6px;
+  padding: 19px 17px 22px;
+}
+
+.reference-pass-details span,
+.reference-booking span {
+  font-size: clamp(11px, 3.2vw, 14px);
+}
+
+.reference-pass-details strong {
+  font-size: clamp(14px, 4vw, 21px);
+}
+
+.reference-booking {
+  gap: 8px;
+  padding: 27px 17px 7px;
+}
+
+.reference-booking strong {
+  font-size: clamp(10px, 3vw, 14px);
+}
+
+.reference-number {
+  padding: 15px 6px 19px;
+  font-size: 12px;
+}
+
+.reference-pass-strip {
+  min-height: 29px;
+  font-size: 16px;
+}
+
+.reference-emblem-area {
+  min-height: clamp(180px, 29vh, 300px);
+}
+
+.reference-expiry {
+  min-height: 32px;
+  padding: 7px 5px;
+  font-size: 12px;
+}
+
+.reference-qr-button {
+  min-height: 52px;
+  margin-top: clamp(18px, 5vh, 55px);
+  font-size: 15px;
+}
+
+.pass-disclaimer {
+  margin-top: 6px;
+  font-size: 8px;
+}
+
+/* Short phone screens */
+@media (max-height: 760px) {
+  .pass-content {
+    margin-top: 20px;
+  }
+
+  .reference-pass-details {
+    padding-top: 13px;
+    padding-bottom: 15px;
+  }
+
+  .reference-booking {
+    padding-top: 20px;
+  }
+
+  .reference-number {
+    padding-top: 11px;
+    padding-bottom: 13px;
+  }
+
+  .reference-emblem-area {
+    min-height: 165px;
+  }
+
+  .reference-qr-button {
+    margin-top: 14px;
+  }
+}
+/* ===== Animated demo logo ===== */
+
+.demo-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pmpml-logo {
+  display: block;
+  width: clamp(110px, 34vw, 190px);
+  height: auto;
+  max-height: 190px;
+  object-fit: contain;
+  transform-origin: center;
+  animation: logo-breathe 2.6s ease-in-out infinite;
+}
+
+.logo-demo-label {
+  color: #777;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@keyframes logo-breathe {
+  0%,
+  100% {
+    transform: scale(0.94);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pmpml-logo {
+    animation: none;
+  }
+}
+.demo-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pmpml-logo {
+  display: block;
+  width: clamp(110px, 34vw, 190px);
+  max-height: 190px;
+  object-fit: contain;
+  transform-origin: center;
+  animation: logo-breathe 2.6s ease-in-out infinite;
+}
+
+.demo-logo-fallback {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  color: #555;
+  text-align: center;
+}
+
+.demo-logo-fallback strong {
+  width: 100%;
+  padding: 5px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  color: #a32d32;
+  font-size: 20px;
+}
+
+.demo-logo-fallback span,
+.demo-logo-fallback small {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@keyframes logo-breathe {
+  0%,
+  100% {
+    transform: scale(0.94);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pmpml-logo {
+    animation: none;
+  }
+}
+/* Daily Pass: compact, reference-inspired layout */
+
+.pass-screen {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0 14px 12px;
+  background: #e4f0d9;
+}
+
+.pass-topbar {
+  width: 100%;
+  max-width: 540px;
+  height: 48px;
+}
+
+.pass-content {
+  width: 100%;
+  max-width: 540px;
+  margin: clamp(24px, 7vh, 70px) auto 0;
+}
+
+.reference-pass {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f4f4f4;
+}
+
+.reference-pass-heading {
+  min-height: 43px;
+  padding: 5px 8px;
+  background: #c52227;
+  color: white;
+  font-size: clamp(15px, 4.2vw, 22px);
+  text-align: center;
+}
+
+.reference-pass-details {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr 0.65fr;
+  gap: 6px;
+  padding: 19px 17px 22px;
+}
+
+.reference-pass-details > div,
+.reference-booking > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reference-pass-details span,
+.reference-booking span {
+  color: #777b77;
+  font-size: clamp(11px, 3.2vw, 14px);
+}
+
+.reference-pass-details strong {
+  color: #202220;
+  font-size: clamp(14px, 4vw, 21px);
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.reference-perforation {
+  position: relative;
+  height: 1px;
+  border-top: 2px dashed #c9c9c9;
+}
+
+.reference-perforation::before,
+.reference-perforation::after {
+  position: absolute;
+  top: -23px;
+  width: 24px;
+  height: 46px;
+  border-radius: 50%;
+  background: #e4f0d9;
+  content: "";
+}
+
+.reference-perforation::before {
+  left: -12px;
+}
+
+.reference-perforation::after {
+  right: -12px;
+}
+
+.reference-booking {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 27px 17px 7px;
+}
+
+.reference-booking strong {
+  color: #292c29;
+  font-size: clamp(10px, 3vw, 14px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.reference-number {
+  padding: 15px 6px 19px;
+  color: #575b57;
+  font-size: 12px;
+  text-align: center;
+}
+
+.reference-pass-strip {
+  display: flex;
+  min-height: 29px;
+  align-items: center;
+  justify-content: center;
+  background: #c52227;
+  color: white;
+  font-size: 16px;
+}
+
+.reference-emblem-area {
+  display: grid;
+  min-height: clamp(180px, 29vh, 300px);
+  place-items: center;
+  background: #f4f4f4;
+}
+
+.demo-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmpml-logo {
+  display: block;
+  width: clamp(110px, 34vw, 190px);
+  max-height: 190px;
+  object-fit: contain;
+  animation: logo-breathe 2.6s ease-in-out infinite;
+}
+
+.demo-logo-fallback {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  color: #555;
+  text-align: center;
+}
+
+.demo-logo-fallback strong {
+  width: 100%;
+  padding: 5px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  color: #a32d32;
+  font-size: 20px;
+}
+
+.demo-logo-fallback span,
+.demo-logo-fallback small {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@keyframes logo-breathe {
+  0%,
+  100% {
+    transform: scale(0.94);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.reference-expiry {
+  min-height: 32px;
+  padding: 7px 5px;
+  background: #eaeaea;
+  color: #707070;
+  font-size: 12px;
+  text-align: center;
+}
+
+.reference-qr-button {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(18px, 5vh, 55px);
+  border: 2px solid #619674;
+  border-radius: 12px;
+  background: transparent;
+  color: #427956;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.reference-qr-button span {
+  font-size: 25px;
+}
+
+.pass-disclaimer {
+  margin-top: 6px;
+  color: #66745f;
+  font-size: 8px;
+  text-align: center;
+}
+
+@media (max-height: 760px) {
+  .pass-content {
+    margin-top: 20px;
+  }
+
+  .reference-pass-details {
+    padding-top: 13px;
+    padding-bottom: 15px;
+  }
+
+  .reference-booking {
+    padding-top: 20px;
+  }
+
+  .reference-number {
+    padding-top: 11px;
+    padding-bottom: 13px;
+  }
+
+  .reference-emblem-area {
+    min-height: 165px;
+  }
+
+  .reference-qr-button {
+    margin-top: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pmpml-logo {
+    animation: none;
+  }
+}
