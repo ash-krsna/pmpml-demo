@@ -1636,3 +1636,94 @@ a {
     will-change: auto;
   }
 }
+
+
+/* Final refinements requested from the latest mobile screenshots */
+.reference-pass {
+  box-sizing: border-box;
+}
+
+.reference-perforation {
+  border-top-color: #8bd5ed;
+  border-top-style: dashed;
+}
+
+.reference-perforation::before,
+.reference-perforation::after {
+  background: #e4f0d9;
+}
+
+.reference-booking {
+  padding-top: 21px;
+  padding-bottom: 8px;
+}
+
+.reference-number {
+  padding-top: 11px;
+  padding-bottom: 13px;
+}
+
+.reference-emblem-area {
+  min-height: clamp(165px, 24vh, 230px);
+  padding: 12px 8px;
+}
+
+.pmpml-logo {
+  width: clamp(135px, 39vw, 205px);
+  max-width: 76%;
+  max-height: 205px;
+  animation: logo-breathe-fast 0.95s ease-in-out infinite;
+  -webkit-animation: logo-breathe-fast 0.95s ease-in-out infinite;
+}
+
+@keyframes logo-breathe-fast {
+  0%, 100% {
+    transform: translateZ(0) scale(0.82);
+  }
+  50% {
+    transform: translateZ(0) scale(1.12);
+  }
+}
+
+@-webkit-keyframes logo-breathe-fast {
+  0%, 100% {
+    -webkit-transform: translateZ(0) scale(0.82);
+  }
+  50% {
+    -webkit-transform: translateZ(0) scale(1.12);
+  }
+}
+
+.reference-qr-button {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  height: auto;
+  flex: 0 0 auto;
+  align-self: auto;
+  margin-top: 18px;
+  padding: 9px 12px;
+  border-color: #79cce7;
+  background: rgba(255, 255, 255, 0.14);
+  line-height: 1.25;
+}
+
+.reference-qr-button > span {
+  flex: 0 0 auto;
+  line-height: 1;
+}
+
+.pass-disclaimer {
+  margin-bottom: 0;
+}
+
+@media (max-height: 760px) {
+  .reference-emblem-area {
+    min-height: 155px;
+  }
+
+  .reference-qr-button {
+    min-height: 46px;
+    margin-top: 12px;
+  }
+}
