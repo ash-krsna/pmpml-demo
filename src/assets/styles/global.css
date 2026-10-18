@@ -1733,13 +1733,18 @@ a {
   position: relative;
 }
 
+.pass-screen {
+  position: relative;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 .pass-screen::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 35px; /* Increase the blue line's height */
   background: #79cde8;
   z-index: 10;
   pointer-events: none;
