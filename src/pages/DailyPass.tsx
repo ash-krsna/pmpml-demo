@@ -21,21 +21,31 @@ function formatTime(date: Date): string {
 }
 
 function DailyPass() {
+  // Initialize using the current local date and time.
   const [now, setNow] = useState<Date>(() => new Date());
   const [showDemoQR, setShowDemoQR] = useState(false);
 
+  // Keep the date and time updated automatically.
   useEffect(() => {
-    const timer = window.setInterval(() => {
+    const updateDateTime = () => {
       setNow(new Date());
-    }, 1000);
+    };
 
+    // Update immediately when the component mounts.
+    updateDateTime();
+
+    // Refresh the date and time every second.
+    const timer = window.setInterval(updateDateTime, 1000);
+
+    // Clean up the timer when the component unmounts.
     return () => window.clearInterval(timer);
   }, []);
 
-  // Calculate the countdown to the end of the current local day.
+  // Calculate the end of the current local calendar day.
   const midnight = new Date(now);
-  midnight.setHours(23, 59, 59, 999);
+  midnight.setHours(24, 0, 0, 0);
 
+  // Calculate the remaining time until midnight.
   const remainingSeconds = Math.max(
     0,
     Math.floor((midnight.getTime() - now.getTime()) / 1000),
@@ -49,7 +59,9 @@ function DailyPass() {
     Math.floor((remainingSeconds % 3600) / 60),
   ).padStart(2, "0");
 
-  const seconds = String(remainingSeconds % 60).padStart(2, "0");
+  const seconds = String(
+    remainingSeconds % 60,
+  ).padStart(2, "0");
 
   return (
     <main className="pass-screen">
@@ -125,17 +137,17 @@ function DailyPass() {
             </div>
           </div>
 
-          {/* Clearly marked demonstration reference */}
+          {/* Demonstration reference */}
           <div className="reference-number">
             DEMO · NOT VALID FOR TRAVEL
           </div>
 
-          {/* Red pass strip */}
+          {/* Pass strip */}
           <div className="reference-pass-strip">
             One Day Pass
           </div>
 
-          {/* Imported logo with zoom animation */}
+          {/* Logo */}
           <div className="reference-emblem-area">
             <div className="demo-logo-wrapper">
               <img
@@ -181,6 +193,7 @@ function DailyPass() {
           </div>
         )}
 
+        {/* Disclaimer */}
         <p className="pass-disclaimer">
           DEMONSTRATION ONLY · NOT AN OFFICIAL PMPML PASS
         </p>

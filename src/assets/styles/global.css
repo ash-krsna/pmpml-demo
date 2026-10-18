@@ -1727,3 +1727,20 @@ a {
     margin-top: 12px;
   }
 }
+/* Sky-blue strip at the very top of the mobile screen */
+.pass-screen {
+  padding-top: env(safe-area-inset-top, 0px);
+  position: relative;
+}
+
+.pass-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #79cde8;
+  z-index: 10;
+  pointer-events: none;
+}
