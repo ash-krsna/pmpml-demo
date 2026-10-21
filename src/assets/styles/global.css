@@ -624,859 +624,149 @@ a {
     scroll-behavior: auto !important;
   }
 }
-/* =========================================
-   DAILY PASS — REFERENCE-INSPIRED LAYOUT
-   ========================================= */
+/* =========================================================
+   DAILY PASS — consolidated responsive styles
+   Dashboard and unrelated application styles remain above.
+   ========================================================= */
 
 .pass-screen {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   min-height: 100vh;
-  padding: 0 20px 24px;
+  min-height: 100dvh;
+  padding: env(safe-area-inset-top, 0px) 16px calc(24px + env(safe-area-inset-bottom));
+  overflow-x: clip;
   background: #e4f0d9;
   color: #242824;
 }
 
+.pass-blue-strip {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: calc(8px + env(safe-area-inset-top, 0px));
+  background: #79cde8;
+  pointer-events: none;
+}
+
 .pass-topbar {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   width: min(100%, 540px);
-  height: 66px;
-  margin: 0 auto;
+  min-height: 54px;
+  margin: 8px auto 0;
 }
 
 .pass-close {
+  display: inline-grid;
+  width: 36px;
+  height: 40px;
+  flex: 0 0 36px;
+  place-items: center;
   color: #222b24;
   font-size: 34px;
   font-weight: 300;
   line-height: 1;
 }
 
+.pass-close:focus-visible,
+.pass-top-links a:focus-visible,
+.pass-top-links button:focus-visible,
+.reference-qr-button:focus-visible,
+.demo-qr-close:focus-visible {
+  outline: 3px solid #247ca0;
+  outline-offset: 3px;
+}
+
 .pass-top-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-end;
+  gap: clamp(12px, 4vw, 24px);
+  min-width: 0;
 }
 
 .pass-top-links button,
 .pass-top-links a {
-  padding: 0;
+  padding: 6px 0;
   border: 0;
   background: transparent;
   color: #303b31;
-  font-size: 14px;
+  font-size: clamp(12px, 3.5vw, 14px);
+  line-height: 1.25;
   text-decoration: underline;
   text-underline-offset: 3px;
+  white-space: nowrap;
 }
 
 .pass-content {
-  width: min(100%, 540px);
-  margin: 94px auto 0;
+  width: min(100%, 480px);
+  margin: clamp(28px, 5vh, 49px) auto 0;
 }
 
 .reference-pass {
+  width: 100%;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 14px;
   background: #f4f4f4;
-  box-shadow: none;
+  box-shadow: 0 8px 24px rgb(34 45 34 / 8%);
 }
 
 .reference-pass-heading {
   display: flex;
-  min-height: 48px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
-  padding: 8px 10px;
+  padding: 7px 10px;
   background: #c52227;
-  color: white;
-  font-size: clamp(16px, 4.3vw, 22px);
-  font-weight: 500;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.reference-pass-details {
-  display: grid;
-  grid-template-columns: 1.35fr 0.8fr 0.65fr;
-  gap: 10px;
-  padding: 24px 22px 27px;
-}
-
-.reference-pass-details > div,
-.reference-booking > div {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.reference-pass-details span,
-.reference-booking span {
-  color: #777b77;
-  font-size: 14px;
-  line-height: 1.25;
-}
-
-.reference-pass-details strong {
-  color: #202220;
-  font-size: clamp(14px, 3.7vw, 21px);
-  font-weight: 750;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
-
-.reference-perforation {
-  position: relative;
-  height: 1px;
-  margin: 0;
-  border-top: 2px dashed #c9c9c9;
-}
-
-.reference-perforation::before,
-.reference-perforation::after {
-  position: absolute;
-  top: -23px;
-  width: 24px;
-  height: 46px;
-  border-radius: 50%;
-  background: #e4f0d9;
-  content: "";
-}
-
-.reference-perforation::before {
-  left: -12px;
-}
-
-.reference-perforation::after {
-  right: -12px;
-}
-
-.reference-booking {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 35px 22px 10px;
-}
-
-.reference-booking strong {
-  color: #292c29;
-  font-size: clamp(11px, 3vw, 14px);
-  font-weight: 650;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.reference-number {
-  padding: 22px 8px 26px;
-  color: #575b57;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  text-align: center;
-}
-
-.reference-pass-strip {
-  display: flex;
-  min-height: 32px;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  background: #c52227;
-  color: white;
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.reference-emblem-area {
-  display: grid;
-  min-height: 330px;
-  place-items: center;
-  background: #f4f4f4;
-}
-
-.demo-emblem {
-  display: flex;
-  width: 128px;
-  height: 128px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border: 2px solid #a4a4a4;
-  border-radius: 50%;
-  color: #555;
-  text-align: center;
-}
-
-.demo-emblem strong {
-  width: 100%;
-  padding: 5px 0;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
-  color: #a32d32;
-  font-size: 19px;
-  letter-spacing: 1px;
-}
-
-.demo-emblem span {
-  padding: 0 8px;
-  font-size: 8px;
-  font-weight: 700;
-}
-
-.reference-expiry {
-  min-height: 37px;
-  padding: 9px 6px;
-  background: #eaeaea;
-  color: #707070;
-  font-size: 14px;
-  text-align: center;
-}
-
-.reference-qr-button {
-  display: flex;
-  width: 100%;
-  min-height: 62px;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 72px;
-  border: 2px solid #619674;
-  border-radius: 12px;
-  background: transparent;
-  color: #427956;
-  font-size: 17px;
+  color: #fff;
+  font-size: clamp(15px, 4.2vw, 22px);
   font-weight: 600;
-}
-
-.reference-qr-button > span {
-  font-size: 26px;
-}
-
-.demo-qr-panel {
-  margin-top: 16px;
-  padding: 20px;
-  border: 1px solid #cbd8c5;
-  border-radius: 12px;
-  background: white;
-  text-align: center;
-}
-
-.demo-qr-pattern {
-  display: grid;
-  width: 150px;
-  height: 150px;
-  place-items: center;
-  margin: 0 auto;
-  border: 8px solid #222;
-  background:
-    repeating-conic-gradient(#222 0% 25%, white 0% 50%) 0 0 / 18px 18px;
-}
-
-.demo-qr-pattern span {
-  padding: 8px;
-  background: white;
-  color: #222;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.demo-qr-panel p {
-  color: #666;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.pass-disclaimer {
-  margin: 14px 0 0;
-  color: #66745f;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  text-align: center;
-}
-
-@media (max-width: 380px) {
-  .pass-screen {
-    padding-right: 13px;
-    padding-left: 13px;
-  }
-
-  .pass-content {
-    margin-top: 76px;
-  }
-
-  .reference-pass-details {
-    gap: 7px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  .reference-booking {
-    gap: 8px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  .reference-pass-details span,
-  .reference-booking span {
-    font-size: 12px;
-  }
-
-  .reference-emblem-area {
-    min-height: 280px;
-  }
-
-  .reference-qr-button {
-    margin-top: 48px;
-  }
-}
-/* ===== Mobile full-screen pass layout ===== */
-
-.pass-screen {
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 0 14px 12px;
-  background: #e4f0d9;
-}
-
-.pass-topbar {
-  width: 100%;
-  max-width: 540px;
-  height: 48px;
-}
-
-.pass-content {
-  width: 100%;
-  max-width: 540px;
-  margin: clamp(24px, 7vh, 70px) auto 0;
-}
-
-.reference-pass {
-  width: 100%;
-  border-radius: 14px;
-}
-
-.reference-pass-heading {
-  min-height: 43px;
-  padding: 5px 8px;
-  font-size: clamp(15px, 4.2vw, 22px);
-}
-
-.reference-pass-details {
-  gap: 6px;
-  padding: 19px 17px 22px;
-}
-
-.reference-pass-details span,
-.reference-booking span {
-  font-size: clamp(11px, 3.2vw, 14px);
-}
-
-.reference-pass-details strong {
-  font-size: clamp(14px, 4vw, 21px);
-}
-
-.reference-booking {
-  gap: 8px;
-  padding: 27px 17px 7px;
-}
-
-.reference-booking strong {
-  font-size: clamp(10px, 3vw, 14px);
-}
-
-.reference-number {
-  padding: 15px 6px 19px;
-  font-size: 12px;
-}
-
-.reference-pass-strip {
-  min-height: 29px;
-  font-size: 16px;
-}
-
-.reference-emblem-area {
-  min-height: clamp(180px, 29vh, 300px);
-}
-
-.reference-expiry {
-  min-height: 32px;
-  padding: 7px 5px;
-  font-size: 12px;
-}
-
-.reference-qr-button {
-  min-height: 52px;
-  margin-top: clamp(18px, 5vh, 55px);
-  font-size: 15px;
-}
-
-.pass-disclaimer {
-  margin-top: 6px;
-  font-size: 8px;
-}
-
-/* Short phone screens */
-@media (max-height: 760px) {
-  .pass-content {
-    margin-top: 20px;
-  }
-
-  .reference-pass-details {
-    padding-top: 13px;
-    padding-bottom: 15px;
-  }
-
-  .reference-booking {
-    padding-top: 20px;
-  }
-
-  .reference-number {
-    padding-top: 11px;
-    padding-bottom: 13px;
-  }
-
-  .reference-emblem-area {
-    min-height: 165px;
-  }
-
-  .reference-qr-button {
-    margin-top: 14px;
-  }
-}
-/* ===== Animated demo logo ===== */
-
-.demo-logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.pmpml-logo {
-  display: block;
-  width: clamp(110px, 34vw, 190px);
-  height: auto;
-  max-height: 190px;
-  object-fit: contain;
-  transform-origin: center;
-  animation: logo-breathe 2.6s ease-in-out infinite;
-}
-
-.logo-demo-label {
-  color: #777;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-@keyframes logo-breathe {
-  0%,
-  100% {
-    transform: scale(0.94);
-  }
-
-  50% {
-    transform: scale(1.06);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pmpml-logo {
-    animation: none;
-  }
-}
-.demo-logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.pmpml-logo {
-  display: block;
-  width: clamp(110px, 34vw, 190px);
-  max-height: 190px;
-  object-fit: contain;
-  transform-origin: center;
-  animation: logo-breathe 2.6s ease-in-out infinite;
-}
-
-.demo-logo-fallback {
-  display: flex;
-  width: 120px;
-  height: 120px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border: 2px solid #999;
-  border-radius: 50%;
-  color: #555;
-  text-align: center;
-}
-
-.demo-logo-fallback strong {
-  width: 100%;
-  padding: 5px;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  color: #a32d32;
-  font-size: 20px;
-}
-
-.demo-logo-fallback span,
-.demo-logo-fallback small {
-  font-size: 9px;
-  font-weight: 700;
-}
-
-@keyframes logo-breathe {
-  0%,
-  100% {
-    transform: scale(0.94);
-  }
-
-  50% {
-    transform: scale(1.06);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pmpml-logo {
-    animation: none;
-  }
-}
-/* Daily Pass: compact, reference-inspired layout */
-
-.pass-screen {
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 0 14px 12px;
-  background: #e4f0d9;
-}
-
-.pass-topbar {
-  width: 100%;
-  max-width: 540px;
-  height: 48px;
-}
-
-.pass-content {
-  width: 100%;
-  max-width: 540px;
-  margin: clamp(24px, 7vh, 70px) auto 0;
-}
-
-.reference-pass {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #f4f4f4;
-}
-
-.reference-pass-heading {
-  min-height: 43px;
-  padding: 5px 8px;
-  background: #c52227;
-  color: white;
-  font-size: clamp(15px, 4.2vw, 22px);
-  text-align: center;
-}
-
-.reference-pass-details {
-  display: grid;
-  grid-template-columns: 1.35fr 0.8fr 0.65fr;
-  gap: 6px;
-  padding: 19px 17px 22px;
-}
-
-.reference-pass-details > div,
-.reference-booking > div {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.reference-pass-details span,
-.reference-booking span {
-  color: #777b77;
-  font-size: clamp(11px, 3.2vw, 14px);
-}
-
-.reference-pass-details strong {
-  color: #202220;
-  font-size: clamp(14px, 4vw, 21px);
-  font-weight: 750;
-  overflow-wrap: anywhere;
-}
-
-.reference-perforation {
-  position: relative;
-  height: 1px;
-  border-top: 2px dashed #c9c9c9;
-}
-
-.reference-perforation::before,
-.reference-perforation::after {
-  position: absolute;
-  top: -23px;
-  width: 24px;
-  height: 46px;
-  border-radius: 50%;
-  background: #e4f0d9;
-  content: "";
-}
-
-.reference-perforation::before {
-  left: -12px;
-}
-
-.reference-perforation::after {
-  right: -12px;
-}
-
-.reference-booking {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 27px 17px 7px;
-}
-
-.reference-booking strong {
-  color: #292c29;
-  font-size: clamp(10px, 3vw, 14px);
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.reference-number {
-  padding: 15px 6px 19px;
-  color: #575b57;
-  font-size: 12px;
-  text-align: center;
-}
-
-.reference-pass-strip {
-  display: flex;
-  min-height: 29px;
-  align-items: center;
-  justify-content: center;
-  background: #c52227;
-  color: white;
-  font-size: 16px;
-}
-
-.reference-emblem-area {
-  display: grid;
-  min-height: clamp(180px, 29vh, 300px);
-  place-items: center;
-  background: #f4f4f4;
-}
-
-.demo-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pmpml-logo {
-  display: block;
-  width: clamp(110px, 34vw, 190px);
-  max-height: 190px;
-  object-fit: contain;
-  animation: logo-breathe 2.6s ease-in-out infinite;
-}
-
-.demo-logo-fallback {
-  display: flex;
-  width: 120px;
-  height: 120px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border: 2px solid #999;
-  border-radius: 50%;
-  color: #555;
-  text-align: center;
-}
-
-.demo-logo-fallback strong {
-  width: 100%;
-  padding: 5px;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  color: #a32d32;
-  font-size: 20px;
-}
-
-.demo-logo-fallback span,
-.demo-logo-fallback small {
-  font-size: 9px;
-  font-weight: 700;
-}
-
-@keyframes logo-breathe {
-  0%,
-  100% {
-    transform: scale(0.94);
-  }
-
-  50% {
-    transform: scale(1.06);
-  }
-}
-
-.reference-expiry {
-  min-height: 32px;
-  padding: 7px 5px;
-  background: #eaeaea;
-  color: #707070;
-  font-size: 12px;
-  text-align: center;
-}
-
-.reference-qr-button {
-  display: flex;
-  width: 100%;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: clamp(18px, 5vh, 55px);
-  border: 2px solid #619674;
-  border-radius: 12px;
-  background: transparent;
-  color: #427956;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.reference-qr-button span {
-  font-size: 25px;
-}
-
-.pass-disclaimer {
-  margin-top: 6px;
-  color: #66745f;
-  font-size: 8px;
-  text-align: center;
-}
-
-@media (max-height: 760px) {
-  .pass-content {
-    margin-top: 20px;
-  }
-
-  .reference-pass-details {
-    padding-top: 13px;
-    padding-bottom: 15px;
-  }
-
-  .reference-booking {
-    padding-top: 20px;
-  }
-
-  .reference-number {
-    padding-top: 11px;
-    padding-bottom: 13px;
-  }
-
-  .reference-emblem-area {
-    min-height: 165px;
-  }
-
-  .reference-qr-button {
-    margin-top: 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pmpml-logo {
-    animation: none;
-  }
-}
-
-
-/* =========================================================
-   DAILY PASS — MOBILE REFINEMENTS
-   Overrides earlier duplicate Daily Pass rules above.
-   ========================================================= */
-
-.pass-screen {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: 0 14px calc(18px + env(safe-area-inset-bottom));
-  background: #e4f0d9;
-  color: #242824;
-}
-
-.pass-topbar {
-  width: 100%;
-  max-width: 540px;
-  height: 48px;
-  margin: 0 auto;
-}
-
-.pass-top-links {
-  gap: clamp(12px, 4vw, 24px);
-}
-
-.pass-top-links button,
-.pass-top-links a {
-  font-size: clamp(12px, 3.5vw, 14px);
-}
-
-.pass-content {
-  width: 100%;
-  max-width: 540px;
-  margin: clamp(18px, 4vh, 36px) auto 0;
-}
-
-.reference-pass {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #f4f4f4;
-}
-
-.reference-pass-heading {
-  min-height: 43px;
-  padding: 6px 8px;
-  font-size: clamp(15px, 4.2vw, 22px);
   line-height: 1.35;
+  text-align: center;
 }
 
 .reference-pass-details {
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr) minmax(0, 0.65fr);
-  gap: 6px;
-  padding: 18px 16px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr) minmax(0, 0.75fr);
+  gap: 8px;
+  padding: 20px 18px 22px;
+}
+
+.reference-pass-details > div,
+.reference-booking > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .reference-pass-details span,
 .reference-booking span {
-  font-size: clamp(11px, 3.2vw, 14px);
+  color: #777b77;
+  font-size: clamp(11px, 3vw, 14px);
+  line-height: 1.25;
 }
 
 .reference-pass-details strong {
-  font-size: clamp(13px, 3.8vw, 21px);
+  color: #202220;
+  font-size: clamp(13px, 3.7vw, 20px);
+  font-weight: 750;
   line-height: 1.25;
-  overflow-wrap: normal;
-  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .reference-perforation {
   position: relative;
   height: 1px;
-  margin: 0;
-  border-top: 2px dashed #c9c9c9;
+  border-top: 2px dashed #8bd5ed;
 }
 
 .reference-perforation::before,
@@ -1494,258 +784,253 @@ a {
 .reference-perforation::after { right: -12px; }
 
 .reference-booking {
+  display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 10px;
-  padding: 25px 16px 8px;
+  padding: 24px 18px 8px;
 }
 
 .reference-booking strong {
+  color: #292c29;
   font-size: clamp(10px, 2.9vw, 14px);
-  line-height: 1.45;
-  overflow-wrap: normal;
-  word-break: normal;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .reference-number {
-  padding: 14px 8px 17px;
-  font-size: clamp(11px, 3.3vw, 14px);
+  padding: 13px 8px 15px;
+  color: #575b57;
+  font-size: clamp(11px, 3.1vw, 14px);
+  letter-spacing: 0.4px;
   line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .reference-pass-strip {
-  min-height: 30px;
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
   padding: 5px 10px;
+  background: #c52227;
+  color: #fff;
   font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
 }
 
 .reference-emblem-area {
   display: grid;
-  min-height: clamp(190px, 30vh, 290px);
+  min-height: clamp(165px, 24vh, 230px);
   place-items: center;
-  padding: 18px 10px;
+  padding: 16px 10px;
   background: #f4f4f4;
-}
-
-.demo-logo-wrapper {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 .pmpml-logo {
   display: block;
-  width: clamp(125px, 37vw, 190px);
+  width: clamp(135px, 39vw, 205px);
+  max-width: 76%;
+  max-height: 205px;
   height: auto;
-  max-width: 70%;
-  max-height: 190px;
   object-fit: contain;
-  transform: translateZ(0) scale(0.88);
   transform-origin: center;
-  animation: logo-breathe-fast 1.15s ease-in-out infinite;
-  will-change: transform;
+  animation: logo-breathe 3.3s ease-in-out infinite;
 }
 
-.logo-demo-label {
-  color: #777;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-@keyframes logo-breathe-fast {
-  0%, 100% { transform: translateZ(0) scale(0.88); }
-  50% { transform: translateZ(0) scale(1.08); }
+@keyframes logo-breathe {
+  0%, 100% { transform: scale(0.96); }
+  50% { transform: scale(1.02); }
 }
 
 .reference-expiry {
-  min-height: 34px;
-  padding: 8px 5px;
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
   background: #eaeaea;
   color: #707070;
-  font-size: clamp(11px, 3.2vw, 14px);
+  font-size: clamp(11px, 3.1vw, 14px);
   line-height: 1.4;
   text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .reference-qr-button {
   display: flex;
   width: 100%;
-  min-height: 54px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: clamp(18px, 3vh, 30px);
-  padding: 10px 12px;
+  gap: 10px;
+  margin: 38px auto 0;
+  padding: 10px 14px;
   border: 2px solid #619674;
   border-radius: 12px;
-  background: transparent;
+  background: rgb(255 255 255 / 14%);
   color: #427956;
   font-size: clamp(14px, 3.8vw, 17px);
-  font-weight: 600;
-}
-
-.reference-qr-button > span { font-size: 24px; }
-
-.demo-qr-panel {
-  margin-top: 14px;
-  padding: 18px;
-  border: 1px solid #cbd8c5;
-  border-radius: 12px;
-  background: white;
-  text-align: center;
-}
-
-.pass-disclaimer {
-  margin: 7px 0 0;
-  color: #66745f;
-  font-size: clamp(7px, 2vw, 9px);
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  line-height: 1.45;
-  text-align: center;
-}
-
-@media (max-width: 380px) {
-  .pass-screen { padding-right: 11px; padding-left: 11px; }
-  .pass-content { margin-top: 18px; }
-  .reference-pass-details { gap: 5px; padding-right: 12px; padding-left: 12px; }
-  .reference-pass-details strong { font-size: clamp(12px, 3.7vw, 15px); }
-  .reference-booking { gap: 7px; padding-right: 12px; padding-left: 12px; }
-  .reference-booking strong { font-size: 10px; }
-  .reference-emblem-area { min-height: 190px; }
-  .reference-qr-button { margin-top: 18px; }
-}
-
-@media (max-height: 760px) {
-  .pass-content { margin-top: 14px; }
-  .reference-pass-details { padding-top: 13px; padding-bottom: 15px; }
-  .reference-booking { padding-top: 18px; }
-  .reference-number { padding-top: 10px; padding-bottom: 12px; }
-  .reference-emblem-area { min-height: 170px; }
-  .reference-qr-button { margin-top: 14px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pmpml-logo {
-    animation: none;
-    transform: none;
-    will-change: auto;
-  }
-}
-
-
-/* Final refinements requested from the latest mobile screenshots */
-.reference-pass {
-  box-sizing: border-box;
-}
-
-.reference-perforation {
-  border-top-color: #8bd5ed;
-  border-top-style: dashed;
-}
-
-.reference-perforation::before,
-.reference-perforation::after {
-  background: #e4f0d9;
-}
-
-.reference-booking {
-  padding-top: 21px;
-  padding-bottom: 8px;
-}
-
-.reference-number {
-  padding-top: 11px;
-  padding-bottom: 13px;
-}
-
-.reference-emblem-area {
-  min-height: clamp(165px, 24vh, 230px);
-  padding: 12px 8px;
-}
-
-.pmpml-logo {
-  width: clamp(135px, 39vw, 205px);
-  max-width: 76%;
-  max-height: 205px;
-  animation: logo-breathe-fast 0.95s ease-in-out infinite;
-  -webkit-animation: logo-breathe-fast 0.95s ease-in-out infinite;
-}
-
-@keyframes logo-breathe-fast {
-  0%, 100% {
-    transform: translateZ(0) scale(0.82);
-  }
-  50% {
-    transform: translateZ(0) scale(1.12);
-  }
-}
-
-@-webkit-keyframes logo-breathe-fast {
-  0%, 100% {
-    -webkit-transform: translateZ(0) scale(0.82);
-  }
-  50% {
-    -webkit-transform: translateZ(0) scale(1.12);
-  }
-}
-
-.reference-qr-button {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 48px;
-  height: auto;
-  flex: 0 0 auto;
-  align-self: auto;
-  margin-top: 18px;
-  padding: 9px 12px;
-  border-color: #79cce7;
-  background: rgba(255, 255, 255, 0.14);
+  font-weight: 650;
   line-height: 1.25;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.reference-qr-button:hover {
+  background: rgb(255 255 255 / 55%);
+}
+
+.reference-qr-button:active {
+  transform: scale(0.99);
 }
 
 .reference-qr-button > span {
   flex: 0 0 auto;
+  font-size: 24px;
   line-height: 1;
 }
 
 .pass-disclaimer {
-  margin-bottom: 0;
+  margin: 10px 0 0;
+  color: #66745f;
+  font-size: clamp(8px, 2vw, 10px);
+  font-weight: 800;
+  letter-spacing: 0.35px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.demo-qr-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  padding-top: calc(20px + env(safe-area-inset-top));
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  background: rgb(25 30 28 / 62%);
+  overscroll-behavior: contain;
+}
+
+.demo-qr-modal {
+  position: relative;
+  width: min(100%, 340px);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 28px 22px 22px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 70px rgb(0 0 0 / 25%);
+  text-align: center;
+}
+
+.demo-qr-modal h2 {
+  margin: 0 28px 20px;
+  color: #27352b;
+  font-size: 19px;
+}
+
+.demo-qr-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #f0f2ef;
+  color: #303830;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.demo-qr-pattern {
+  position: relative;
+  display: grid;
+  width: min(68vw, 210px);
+  aspect-ratio: 1;
+  place-items: center;
+  margin: 0 auto 16px;
+  border: 10px solid #222;
+  background:
+    linear-gradient(90deg, transparent 45%, #222 45% 55%, transparent 55%),
+    linear-gradient(transparent 45%, #222 45% 55%, transparent 55%),
+    repeating-conic-gradient(#222 0% 25%, #fff 0% 50%) 0 0 / 22px 22px;
+}
+
+.demo-qr-pattern::before,
+.demo-qr-pattern::after {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 7px solid #222;
+  background: #fff;
+  box-shadow: inset 0 0 0 6px #222;
+  content: "";
+}
+
+.demo-qr-pattern::before {
+  top: 5px;
+  left: 5px;
+}
+
+.demo-qr-pattern::after {
+  right: 5px;
+  bottom: 5px;
+}
+
+.demo-qr-pattern span {
+  position: relative;
+  z-index: 1;
+  padding: 7px 9px;
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.demo-qr-modal p {
+  margin: 0 0 8px;
+  color: #a32d32;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.demo-qr-modal small {
+  display: block;
+  color: #6f776f;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 380px) {
+  .pass-screen { padding-right: 11px; padding-left: 11px; }
+  .pass-topbar { gap: 6px; }
+  .pass-top-links { gap: 10px; }
+  .reference-pass-details { gap: 5px; padding-right: 12px; padding-left: 12px; }
+  .reference-pass-details strong { font-size: clamp(12px, 3.6vw, 15px); }
+  .reference-booking { gap: 7px; padding-right: 12px; padding-left: 12px; }
+  .reference-booking strong { font-size: 10px; }
+  .reference-qr-button { margin-top: 28px; }
 }
 
 @media (max-height: 760px) {
-  .reference-emblem-area {
-    min-height: 155px;
-  }
-
-  .reference-qr-button {
-    min-height: 46px;
-    margin-top: 12px;
-  }
-}
-/* Sky-blue strip at the very top of the mobile screen */
-.pass-screen {
-  padding-top: env(safe-area-inset-top, 0px);
-  position: relative;
+  .pass-content { margin-top: 22px; }
+  .reference-pass-details { padding-top: 13px; padding-bottom: 15px; }
+  .reference-booking { padding-top: 18px; }
+  .reference-number { padding-top: 10px; padding-bottom: 11px; }
+  .reference-emblem-area { min-height: 145px; }
+  .reference-qr-button { margin-top: 24px; }
 }
 
-.pass-screen {
-  position: relative;
-  padding-top: env(safe-area-inset-top, 0px);
-}
-
-.pass-screen::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 35px; /* Increase the blue line's height */
-  background: #79cde8;
-  z-index: 10;
-  pointer-events: none;
+@media (prefers-reduced-motion: reduce) {
+  .pmpml-logo { animation: none; }
+  .reference-qr-button { transition: none; }
 }
