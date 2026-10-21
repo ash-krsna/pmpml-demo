@@ -1041,3 +1041,24 @@ a {
   .pmpml-logo { animation: none; }
   .reference-qr-button { transition: none; }
 }
+
+/* Mobile: keep the Show QR Code action anchored to the bottom of the screen. */
+@media (max-width: 600px) {
+  .pass-screen {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .reference-qr-button {
+    position: fixed;
+    z-index: 50;
+    right: 16px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    left: 16px;
+    width: auto;
+    max-width: 540px;
+    min-height: 52px;
+    margin: 0 auto;
+    box-shadow: 0 5px 18px rgb(25 61 38 / 18%);
+    background: #f7fff6;
+  }
+}
