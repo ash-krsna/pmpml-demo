@@ -831,26 +831,26 @@ a {
 
 .reference-emblem-area {
   display: grid;
-  min-height: clamp(165px, 24vh, 230px);
+  min-height: clamp(205px, 29vh, 270px);
   place-items: center;
-  padding: 16px 10px;
+  padding: 20px 12px;
   background: #f4f4f4;
 }
 
 .pmpml-logo {
   display: block;
-  width: clamp(135px, 39vw, 205px);
-  max-width: 76%;
-  max-height: 205px;
+  width: clamp(160px, 45vw, 235px);
+  max-width: 84%;
+  max-height: 235px;
   height: auto;
   object-fit: contain;
   transform-origin: center;
-  animation: logo-breathe 0.85s ease-in-out infinite;
+  animation: logo-breathe 0.95s ease-in-out infinite;
 }
 
 @keyframes logo-breathe {
-  0%, 100% { transform: scale(0.96); }
-  50% { transform: scale(1.02); }
+  0%, 100% { transform: scale(0.70); }
+  50% { transform: scale(1.06); }
 }
 
 .reference-expiry {
@@ -1024,7 +1024,7 @@ a {
   .reference-pass-details { padding-top: 13px; padding-bottom: 15px; }
   .reference-booking { padding-top: 18px; }
   .reference-number { padding-top: 10px; padding-bottom: 11px; }
-  .reference-emblem-area { min-height: 145px; }
+  .reference-emblem-area { min-height: 175px; padding-top: 16px; padding-bottom: 16px; }
   .reference-qr-button { margin-top: 14px; }
 }
 
