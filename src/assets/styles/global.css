@@ -649,7 +649,7 @@ a {
   top: 0;
   right: 0;
   left: 0;
-  height: calc(12px + env(safe-area-inset-top, 0px));
+  height: calc(25px + env(safe-area-inset-top, 0px));
   background: #79cde8;
   pointer-events: none;
 }
