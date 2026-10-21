@@ -632,6 +632,8 @@ a {
 .pass-screen {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -707,8 +709,13 @@ a {
 }
 
 .pass-content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
   width: min(100%, 480px);
-  margin: clamp(28px, 5vh, 49px) auto 0;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 22px) 0;
 }
 
 .reference-pass {
@@ -838,7 +845,7 @@ a {
   height: auto;
   object-fit: contain;
   transform-origin: center;
-  animation: logo-breathe 3.3s ease-in-out infinite;
+  animation: logo-breathe 0.85s ease-in-out infinite;
 }
 
 @keyframes logo-breathe {
@@ -867,7 +874,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 38px auto 0;
+  margin: 16px auto 0;
   padding: 10px 14px;
   border: 2px solid #619674;
   border-radius: 12px;
@@ -1018,16 +1025,16 @@ a {
   .reference-pass-details strong { font-size: clamp(12px, 3.6vw, 15px); }
   .reference-booking { gap: 7px; padding-right: 12px; padding-left: 12px; }
   .reference-booking strong { font-size: 10px; }
-  .reference-qr-button { margin-top: 28px; }
+  .reference-qr-button { margin-top: 14px; }
 }
 
 @media (max-height: 760px) {
-  .pass-content { margin-top: 22px; }
+  .pass-content { padding-top: 10px; padding-bottom: 10px; }
   .reference-pass-details { padding-top: 13px; padding-bottom: 15px; }
   .reference-booking { padding-top: 18px; }
   .reference-number { padding-top: 10px; padding-bottom: 11px; }
   .reference-emblem-area { min-height: 145px; }
-  .reference-qr-button { margin-top: 24px; }
+  .reference-qr-button { margin-top: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
