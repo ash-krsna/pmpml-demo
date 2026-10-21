@@ -649,7 +649,7 @@ a {
   top: 0;
   right: 0;
   left: 0;
-  height: calc(8px + env(safe-area-inset-top, 0px));
+  height: calc(12px + env(safe-area-inset-top, 0px));
   background: #79cde8;
   pointer-events: none;
 }
@@ -900,15 +900,6 @@ a {
   line-height: 1;
 }
 
-.pass-disclaimer {
-  margin: 10px 0 0;
-  color: #66745f;
-  font-size: clamp(8px, 2vw, 10px);
-  font-weight: 800;
-  letter-spacing: 0.35px;
-  line-height: 1.5;
-  text-align: center;
-}
 
 .demo-qr-overlay {
   position: fixed;

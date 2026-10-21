@@ -176,9 +176,6 @@ function DailyPass() {
           Show QR Code
         </button>
 
-        <p className="pass-disclaimer">
-          DEMONSTRATION ONLY · NOT AN OFFICIAL PMPML PASS · NOT VALID FOR TRAVEL
-        </p>
       </section>
 
       {showDemoQR && (
