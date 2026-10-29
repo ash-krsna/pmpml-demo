@@ -13,41 +13,39 @@ function formatDate(date: Date): string {
   });
 }
 
-function formatTime(date: Date): string {
-  return date
-    .toLocaleTimeString("en-IN", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    })
-    .toUpperCase();
-}
-
 function getDailyDemoReference(date: Date): string {
   // Stable for the local calendar day; this is not a real ticket identifier.
   const dayValue = Math.floor(
     new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() /
       86_400_000,
   );
+
   // Anchor the sequence so the reference ends in F on 21 Oct 2026.
-  const anchorDay = Math.floor(new Date(2026, 9, 21).getTime() / 86_400_000);
+  const anchorDay = Math.floor(
+    new Date(2026, 9, 21).getTime() / 86_400_000,
+  );
+
   const suffixIndex =
     ((dayValue - anchorDay + REFERENCE_SUFFIXES.indexOf("F")) %
       REFERENCE_SUFFIXES.length +
       REFERENCE_SUFFIXES.length) %
     REFERENCE_SUFFIXES.length;
+
   const suffix = REFERENCE_SUFFIXES[suffixIndex];
+
   return `${REFERENCE_PREFIX}${suffix}`;
 }
 
 function DailyPass() {
   const [now, setNow] = useState<Date>(() => new Date());
   const [showDemoQR, setShowDemoQR] = useState(false);
+
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const showQrButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(new Date()), 1000);
+
     return () => window.clearInterval(timer);
   }, []);
 
@@ -62,9 +60,11 @@ function DailyPass() {
       if (event.key === "Escape") {
         setShowDemoQR(false);
       }
+
       if (event.key === "Tab") {
         // Keep keyboard focus inside the simple two-control dialog.
         const closeButton = closeButtonRef.current;
+
         if (event.shiftKey && document.activeElement === closeButton) {
           event.preventDefault();
           showQrButtonRef.current?.focus();
@@ -73,6 +73,7 @@ function DailyPass() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
@@ -80,17 +81,27 @@ function DailyPass() {
   }, [showDemoQR]);
 
   useEffect(() => {
-    if (!showDemoQR) showQrButtonRef.current?.focus({ preventScroll: true });
+    if (!showDemoQR) {
+      showQrButtonRef.current?.focus({ preventScroll: true });
+    }
   }, [showDemoQR]);
 
   const midnight = new Date(now);
   midnight.setHours(24, 0, 0, 0);
+
   const remainingSeconds = Math.max(
     0,
     Math.floor((midnight.getTime() - now.getTime()) / 1000),
   );
-  const hours = String(Math.floor(remainingSeconds / 3600)).padStart(2, "0");
-  const minutes = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, "0");
+
+  const hours = String(
+    Math.floor(remainingSeconds / 3600),
+  ).padStart(2, "0");
+
+  const minutes = String(
+    Math.floor((remainingSeconds % 3600) / 60),
+  ).padStart(2, "0");
+
   const seconds = String(remainingSeconds % 60).padStart(2, "0");
 
   return (
@@ -105,10 +116,13 @@ function DailyPass() {
         <nav className="pass-top-links" aria-label="Pass navigation">
           <button
             type="button"
-            onClick={() => window.alert("This is a demonstration application.")}
+            onClick={() =>
+              window.alert("This is a demonstration application.")
+            }
           >
             Need Help?
           </button>
+
           <Link to="/daily-pass">All Passes</Link>
         </nav>
       </header>
@@ -124,10 +138,12 @@ function DailyPass() {
               <span>Pass Type</span>
               <strong>PMC &amp; PCMC</strong>
             </div>
+
             <div>
               <span>ID</span>
               <strong>8183</strong>
             </div>
+
             <div>
               <span>Fare</span>
               <strong>₹70.83</strong>
@@ -139,15 +155,19 @@ function DailyPass() {
           <div className="reference-booking">
             <div>
               <span>Booking Time</span>
-              <strong>{formatDate(now)} | {formatTime(now)}</strong>
+              <strong>{formatDate(now)} | 07:00 AM</strong>
             </div>
+
             <div>
               <span>Validity Time</span>
               <strong>{formatDate(now)} | 11:59 PM</strong>
             </div>
           </div>
 
-          <div className="reference-number" aria-label="Demonstration reference number">
+          <div
+            className="reference-number"
+            aria-label="Demonstration reference number"
+          >
             {getDailyDemoReference(now)}
           </div>
 
@@ -175,14 +195,15 @@ function DailyPass() {
           <span aria-hidden="true">▦</span>
           Show QR Code
         </button>
-
       </section>
 
       {showDemoQR && (
         <div
           className="demo-qr-overlay"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setShowDemoQR(false);
+            if (event.target === event.currentTarget) {
+              setShowDemoQR(false);
+            }
           }}
         >
           <section
@@ -201,12 +222,25 @@ function DailyPass() {
             >
               ×
             </button>
+
             <h2 id="demo-qr-title">QR Code Preview</h2>
-            <div className="demo-qr-pattern" role="img" aria-label="Decorative QR-style demonstration placeholder; not scannable">
+
+            <div
+              className="demo-qr-pattern"
+              role="img"
+              aria-label="Decorative QR-style demonstration placeholder; not scannable"
+            >
               <span>DEMO</span>
             </div>
-            <p id="demo-qr-disclaimer">Demo QR Code — Not Valid for Travel</p>
-            <small>This decorative placeholder is not scannable and cannot validate a journey.</small>
+
+            <p id="demo-qr-disclaimer">
+              Demo QR Code — Not Valid for Travel
+            </p>
+
+            <small>
+              This decorative placeholder is not scannable and cannot
+              validate a journey.
+            </small>
           </section>
         </div>
       )}
