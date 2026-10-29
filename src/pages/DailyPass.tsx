@@ -155,7 +155,7 @@ function DailyPass() {
           <div className="reference-booking">
             <div>
               <span>Booking Time</span>
-              <strong>{formatDate(now)} | 07:00 AM</strong>
+              <strong>{formatDate(now)} | 06:47 AM</strong>
             </div>
 
             <div>
